@@ -23,6 +23,13 @@ spring:
           predicates:
             - Path=/v1/auth/**
 
+        - id: product-service
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/v1/products/**
+          filters:
+            - AuthFilter
+
 eureka:
   client:
     service-url:
